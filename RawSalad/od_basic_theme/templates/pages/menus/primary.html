@@ -1,0 +1,32 @@
+{% load pages_tags i18n %}
+
+{% spaceless %}
+<nav>
+    <ul id="primary-menu">
+        {% for page in page_branch %}
+            {% if forloop.first %}
+                <li id="primary-menu-home" class="first{% if on_home %} active{% endif %}">
+                    <a href="{% url home %}">
+                        <h3>
+                            {% trans "Home" %}
+                        </h3>
+                    </a>
+                </li>
+            {% endif %}
+            {% if page.in_navigation %}
+                <li id="primary-menu-{{ page.html_id }}" 
+                    class="{% if page.is_current_or_ascendant %}active{% endif %}{% if forloop.last %} last{% endif %}">
+                    <a href="{% url page page.slug %}">
+                        <h3>
+                            {{ page.title }}
+                        </h3>
+                    </a>
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+</nav>
+<div class="right search" >
+        {% include "includes/search.html" %}
+</div>
+{% endspaceless %}
