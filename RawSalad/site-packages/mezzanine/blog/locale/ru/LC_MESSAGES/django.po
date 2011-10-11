@@ -1,0 +1,216 @@
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Andrew Grigorev <andrew@ei-grad.ru>, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-08-06 23:47+0600\n"
+"PO-Revision-Date: 2011-02-22 05:10+0500\n"
+"Last-Translator: Andrew Grigorev <andrew@ei-grad.ru>\n"
+"Language-Team: Russian <>\n"
+"Language: Russian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Lokalize 1.2\n"
+
+#: models.py:16 templates/blog/blog_post_list.html:82
+msgid "Comments"
+msgstr "Комментарии"
+
+#: models.py:17
+msgid "Rating"
+msgstr ""
+
+#: models.py:20
+msgid "Blog post"
+msgstr "Запись в блоге"
+
+#: models.py:21
+msgid "Blog posts"
+msgstr "Записи в блоге"
+
+#: models.py:35
+msgid "Blog Category"
+msgstr "Категория блога"
+
+#: models.py:36
+msgid "Blog Categories"
+msgstr "Категории блога"
+
+#: templates/admin/includes/quick_blog.html:5
+#, fuzzy
+msgid "Quick Blog"
+msgstr "Быстрый Блог"
+
+#: templates/admin/includes/quick_blog.html:14
+msgid "Save Draft"
+msgstr "Сохранить черновик"
+
+#: templates/blog/blog_post_detail.html:36
+msgid "Home"
+msgstr "Начало"
+
+#: templates/blog/blog_post_detail.html:46
+#: templates/blog/blog_post_list.html:50
+msgid "Posted by"
+msgstr "Написал(а)"
+
+#: templates/blog/blog_post_detail.html:53
+#: templates/blog/blog_post_list.html:62
+msgid "ago"
+msgstr "назад"
+
+#: templates/blog/blog_post_detail.html:56
+#: templates/blog/blog_post_list.html:86
+#, fuzzy, python-format
+msgid ""
+"\n"
+"        1 comment\n"
+"        "
+msgid_plural ""
+"\n"
+"        %(comments_count)s comments\n"
+"        "
+msgstr[0] ""
+"\n"
+"        1 комментарий\n"
+"        "
+msgstr[1] ""
+"\n"
+"        %(num_comments)s комментария\n"
+"        "
+msgstr[2] ""
+"\n"
+"        %(num_comments)s комментариев\n"
+"        "
+
+#: templates/blog/blog_post_detail.html:71
+#: templates/blog/blog_post_list.html:72
+#: templates/blog/includes/filter_panel.html:41
+msgid "Tags"
+msgstr "Теги"
+
+#: templates/blog/blog_post_detail.html:85
+#, fuzzy
+msgid "Share this on"
+msgstr "Поделиться этим на:"
+
+#: templates/blog/blog_post_list.html:26
+msgid "Viewing posts tagged"
+msgstr "Просмотр записей с тегом"
+
+#: templates/blog/blog_post_list.html:28
+msgid "Viewing posts for the category"
+msgstr "Просмотр записей в категории"
+
+#: templates/blog/blog_post_list.html:30
+msgid "Viewing posts from"
+msgstr "Просмотр записей от"
+
+#: templates/blog/blog_post_list.html:33
+msgid "Viewing posts by"
+msgstr "Просмотр записей от"
+
+#: templates/blog/blog_post_list.html:57
+#, fuzzy
+msgid "in"
+msgstr "Ссылка"
+
+#: templates/blog/blog_post_list.html:78
+msgid "read more"
+msgstr "читать далее"
+
+#: templates/blog/includes/filter_panel.html:5
+msgid "Recent Posts"
+msgstr "Последние записи"
+
+#: templates/blog/includes/filter_panel.html:16
+msgid "Archive"
+msgstr "Архив"
+
+#: templates/blog/includes/filter_panel.html:30
+msgid "Categories"
+msgstr "Категории"
+
+#: templates/blog/includes/filter_panel.html:52
+msgid "Authors"
+msgstr "Авторы"
+
+#: templates/blog/includes/filter_panel.html:62
+#, fuzzy
+msgid "Feeds"
+msgstr "Ленты"
+
+#: templates/blog/includes/filter_panel.html:63
+msgid "RSS"
+msgstr "RSS"
+
+#: templates/blog/includes/filter_panel.html:64
+msgid "Atom"
+msgstr "Atom"
+
+#~ msgid "Name"
+#~ msgstr "Имя"
+
+#~ msgid "required"
+#~ msgstr "обязательное поле"
+
+#~ msgid "Email"
+#~ msgstr "Электронный адрес"
+
+#~ msgid "required (not published)"
+#~ msgstr "обязательное поле (не публикуется)"
+
+#, fuzzy
+#~ msgid "Email hash"
+#~ msgstr "Хэш электронного адреса"
+
+#~ msgid "Comment"
+#~ msgstr "Комментарий"
+
+#~ msgid "Website"
+#~ msgstr "Веб-сайт"
+
+#~ msgid "optional"
+#~ msgstr "необязательное поле"
+
+#~ msgid "Approved"
+#~ msgstr "Подтвержден"
+
+#~ msgid "By the blog author"
+#~ msgstr "От автора блога"
+
+#~ msgid "IP address"
+#~ msgstr "IP адрес"
+
+#~ msgid "Created at"
+#~ msgstr "Когда создан"
+
+#~ msgid "View on site"
+#~ msgstr "Смотреть на сайте"
+
+#~ msgid "Recent Comments"
+#~ msgstr "Последние комментарии"
+
+#~ msgid "Posted to"
+#~ msgstr "Куда написан"
+
+#~ msgid "View comment"
+#~ msgstr "Посмотреть комментарий"
+
+#~ msgid "Reply"
+#~ msgstr "Ответить"
+
+#~ msgid "Comment deleted"
+#~ msgstr "Комментарий удален"
+
+#~ msgid "Comment awaiting approval"
+#~ msgstr "Комментарий ожидает подтверждения"
+
+#~ msgid "There are currently no comments"
+#~ msgstr "Комментариев нет"

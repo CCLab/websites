@@ -1,0 +1,204 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-08-06 23:47+0600\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: models.py:16 templates/blog/blog_post_list.html:82
+msgid "Comments"
+msgstr "Komentarze"
+
+#: models.py:17
+msgid "Rating"
+msgstr ""
+
+#: models.py:20
+msgid "Blog post"
+msgstr "Post na blogu"
+
+#: models.py:21
+msgid "Blog posts"
+msgstr "Posty na blogu"
+
+#: models.py:35
+msgid "Blog Category"
+msgstr "Kategoria bloga"
+
+#: models.py:36
+msgid "Blog Categories"
+msgstr "Kategorie bloga"
+
+#: templates/admin/includes/quick_blog.html:5
+msgid "Quick Blog"
+msgstr "Szybki Blog"
+
+#: templates/admin/includes/quick_blog.html:14
+msgid "Save Draft"
+msgstr "Zapisz wersję roboczą"
+
+#: templates/blog/blog_post_detail.html:36
+msgid "Home"
+msgstr "Strona główna"
+
+#: templates/blog/blog_post_detail.html:46
+#: templates/blog/blog_post_list.html:50
+msgid "Posted by"
+msgstr "Dodane przez"
+
+#: templates/blog/blog_post_detail.html:53
+#: templates/blog/blog_post_list.html:62
+msgid "ago"
+msgstr "temu"
+
+#: templates/blog/blog_post_detail.html:56
+#: templates/blog/blog_post_list.html:86
+#, fuzzy, python-format
+msgid ""
+"\n"
+"        1 comment\n"
+"        "
+msgid_plural ""
+"\n"
+"        %(comments_count)s comments\n"
+"        "
+msgstr[0] ""
+"\n"
+"        1 komentarz\n"
+"        "
+msgstr[1] ""
+"\n"
+"        Liczba komentarzy: %(num_comments)s \n"
+"        "
+
+#: templates/blog/blog_post_detail.html:71
+#: templates/blog/blog_post_list.html:72
+#: templates/blog/includes/filter_panel.html:41
+msgid "Tags"
+msgstr "Tagi"
+
+#: templates/blog/blog_post_detail.html:85
+#, fuzzy
+msgid "Share this on"
+msgstr "Podziel się przez:"
+
+#: templates/blog/blog_post_list.html:26
+msgid "Viewing posts tagged"
+msgstr "Oglądasz posty otagowane"
+
+#: templates/blog/blog_post_list.html:28
+msgid "Viewing posts for the category"
+msgstr "Oglądasz posty z kategorii"
+
+#: templates/blog/blog_post_list.html:30
+msgid "Viewing posts from"
+msgstr "Oglądasz posty z"
+
+#: templates/blog/blog_post_list.html:33
+msgid "Viewing posts by"
+msgstr "Oglądasz posty dodane przez"
+
+#: templates/blog/blog_post_list.html:57
+msgid "in"
+msgstr ""
+
+#: templates/blog/blog_post_list.html:78
+msgid "read more"
+msgstr "czytaj więcej"
+
+#: templates/blog/includes/filter_panel.html:5
+msgid "Recent Posts"
+msgstr "Ostatnie posty"
+
+#: templates/blog/includes/filter_panel.html:16
+msgid "Archive"
+msgstr "Archiwum"
+
+#: templates/blog/includes/filter_panel.html:30
+msgid "Categories"
+msgstr "Kategorie"
+
+#: templates/blog/includes/filter_panel.html:52
+msgid "Authors"
+msgstr "Autorzy"
+
+#: templates/blog/includes/filter_panel.html:62
+msgid "Feeds"
+msgstr "Subskrypcja"
+
+#: templates/blog/includes/filter_panel.html:63
+msgid "RSS"
+msgstr ""
+
+#: templates/blog/includes/filter_panel.html:64
+msgid "Atom"
+msgstr ""
+
+#~ msgid "Name"
+#~ msgstr "Imię"
+
+#~ msgid "required"
+#~ msgstr "wymagane"
+
+#~ msgid "required (not published)"
+#~ msgstr "wymagane (niedostępne publicznie)"
+
+#~ msgid "Email hash"
+#~ msgstr "Hash emaila"
+
+#~ msgid "Comment"
+#~ msgstr "Komentarz"
+
+#~ msgid "Website"
+#~ msgstr "Strona"
+
+#~ msgid "optional"
+#~ msgstr "opcjonalnie"
+
+#~ msgid "Approved"
+#~ msgstr "Zaakceptowane"
+
+#~ msgid "By the blog author"
+#~ msgstr "Wg. autora"
+
+#~ msgid "IP address"
+#~ msgstr "Adres IP"
+
+#~ msgid "Created at"
+#~ msgstr "Dodany"
+
+#~ msgid "View on site"
+#~ msgstr "Zobacz na stronie"
+
+#~ msgid "Recent Comments"
+#~ msgstr "Ostatnie komentarze"
+
+#~ msgid "Posted to"
+#~ msgstr "Opublikowane"
+
+#~ msgid "View comment"
+#~ msgstr "Zobacz komentarz"
+
+#~ msgid "Reply"
+#~ msgstr "Odpowiedz"
+
+#~ msgid "Comment deleted"
+#~ msgstr "Komentarz usunięty"
+
+#~ msgid "Comment awaiting approval"
+#~ msgstr "Komentarz czekający na moderację"
+
+#~ msgid "There are currently no comments"
+#~ msgstr "Brak komentarzy"

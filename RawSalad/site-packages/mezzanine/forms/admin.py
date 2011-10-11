@@ -1,0 +1,113 @@
+
+from copy import deepcopy
+from csv import writer
+from datetime import datetime
+from mimetypes import guess_type
+from os.path import join
+
+from django.conf.urls.defaults import patterns, url
+from django.contrib import admin
+from django.core.files.storage import FileSystemStorage
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render_to_response, get_object_or_404
+from django.template import RequestContext
+from django.utils.translation import ugettext_lazy as _
+
+from mezzanine.conf import settings
+from mezzanine.core.admin import TabularDynamicInlineAdmin
+from mezzanine.forms.forms import ExportForm
+from mezzanine.forms.models import Form, Field, FieldEntry
+from mezzanine.pages.admin import PageAdmin
+from mezzanine.utils.urls import admin_url, slugify
+
+
+fs = FileSystemStorage(location=settings.FORMS_UPLOAD_ROOT)
+
+# Copy the fieldsets for PageAdmin and add the extra fields for FormAdmin.
+form_fieldsets = deepcopy(PageAdmin.fieldsets)
+form_fieldsets[0][1]["fields"][3:0] = ["content", "button_text", "response"]
+form_fieldsets = list(form_fieldsets)
+form_fieldsets.insert(1, (_("Email"), {"fields": ("send_email", "email_from",
+    "email_copies", "email_subject", "email_message")}))
+
+
+class FieldAdmin(TabularDynamicInlineAdmin):
+    """
+    Admin class for the form field. Inherits from TabularDynamicInlineAdmin to
+    add dynamic "Add another" link and drag/drop ordering.
+    """
+    model = Field
+
+
+class FormAdmin(PageAdmin):
+    """
+    Admin class for the Form model. Includes the urls & views for exporting
+    form entries as CSV and downloading files uploaded via the forms app.
+    """
+
+    inlines = (FieldAdmin,)
+    list_display = ("title", "status", "email_copies",)
+    list_display_links = ("title",)
+    list_editable = ("status", "email_copies")
+    list_filter = ("status",)
+    search_fields = ("title", "content", "response", "email_from",
+        "email_copies")
+    radio_fields = {"status": admin.HORIZONTAL}
+    fieldsets = form_fieldsets
+
+    def get_urls(self):
+        """
+        Add the export view to urls.
+        """
+        urls = super(FormAdmin, self).get_urls()
+        extra_urls = patterns("",
+            url("^export/(?P<form_id>\d+)/$",
+                self.admin_site.admin_view(self.export_view),
+                name="form_export"),
+            url("^file/(?P<field_entry_id>\d+)/$",
+                self.admin_site.admin_view(self.file_view),
+                name="form_file"),
+        )
+        return extra_urls + urls
+
+    def export_view(self, request, form_id):
+        """
+        Exports the form entries in either a HTML table or CSV file.
+        """
+        if request.POST.get("back"):
+            change_url = admin_url(Form, "change", form_id)
+            return HttpResponseRedirect(change_url)
+        form = get_object_or_404(Form, id=form_id)
+        export_form = ExportForm(form, request, request.POST or None)
+        submitted = export_form.is_valid()
+        if submitted:
+            if request.POST.get("export"):
+                response = HttpResponse(mimetype="text/csv")
+                timestamp = slugify(datetime.now().ctime())
+                fname = "%s-%s.csv" % (form.slug, timestamp)
+                header = "attachment; filename=%s" % fname
+                response["Content-Disposition"] = header
+                csv = writer(response, delimiter=settings.FORMS_CSV_DELIMITER)
+                csv.writerow(export_form.columns())
+                for rows in export_form.rows():
+                    csv.writerow(rows)
+                return response
+        template = "admin/forms/export.html"
+        context = {"title": _("Export Entries"), "export_form": export_form,
+                   "submitted": submitted}
+        return render_to_response(template, context, RequestContext(request))
+
+    def file_view(self, request, field_entry_id):
+        """
+        Output the file for the requested field entry.
+        """
+        field_entry = get_object_or_404(FieldEntry, id=field_entry_id)
+        path = join(fs.location, field_entry.value)
+        response = HttpResponse(mimetype=guess_type(path)[0])
+        f = open(path, "r+b")
+        response["Content-Disposition"] = "attachment; filename=%s" % f.name
+        response.write(f.read())
+        f.close()
+        return response
+
+admin.site.register(Form, FormAdmin)

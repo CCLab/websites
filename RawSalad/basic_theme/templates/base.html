@@ -1,0 +1,75 @@
+{% load pages_tags mezzanine_tags i18n %}
+<html>
+    <head>
+
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" /> 
+        <meta name="keywords" content="{% block meta_keywords %}{% endblock %}" /> 
+        <meta name="description" content="{% block meta_description %}{% endblock %}" /> 
+        <title>{% block meta_title %}{% endblock %}{% if settings.SITE_TITLE %} | {{ settings.SITE_TITLE }}{% endif %}</title>
+
+        {% if "mezzanine.blog"|is_installed %}
+        <link rel="alternate" type="application/rss+xml" title="RSS" 
+            href="{% url blog_post_feed "rss" %}" />
+        <link rel="alternate" type="application/atom+xml" title="Atom"  
+            href="{% url blog_post_feed "atom" %}" />
+        {% endif %}
+
+ <!--       <link rel="stylesheet" href="{{ MEDIA_URL }}css/960.css" type="text/css" />
+        <link rel="stylesheet" href="{{ MEDIA_URL }}css/reset.css" type="text/css" />
+        <link rel="stylesheet" href="{{ MEDIA_URL }}css/global.css" type="text/css" /> 
+ -->       
+        <link rel="stylesheet" href="{{ MEDIA_URL }}css/main.css" type="text/css" />    
+        {% block extra_head %}{% endblock %}
+
+    </head>
+    <body id="{% block body_id %}{% endblock %}">
+        <div id="wraper" >
+            <!-- H E A D E R -->
+            <header>
+                <a href="http://rawsalad.centrumcyfrowe.pl">
+                    <img class="left" src="{{ MEDIA_URL }}img/RawSalad_logo.jpg" alt="rawsalad.centrumcyfrowe.pl" title="Raw Salad" >
+                </a>
+                {% if settings.SITE_TAGLINE %}
+                    <h4 class="right" >{{ settings.SITE_TAGLINE }}</h4>
+                {% endif %}   
+            </header>
+            
+            <br class="clear" />
+            <!-- E N D    H E A D E R -->
+
+            <!-- M A I N   M E N U -->
+            <div id="main-menu" >      
+            {% page_menu "pages/menus/primary.html" %}
+            </div>
+            <br class="clear" />
+            <!-- E N D    M A I N   M E N U -->
+
+            <!-- M A I N   C O N T E N T -->
+            <div id="content" >
+
+                <!-- D E S C R I P T I O N -->
+                <article>
+                {% block main %}{% endblock %}
+                </article>                             
+                <!-- E N D    D E S C R I P T I O N -->
+
+                <!-- A S I D E -->
+                <aside>                
+                {% page_menu "pages/menus/side.html" %}
+                <aside>
+                <!-- E N D    A S I D E -->
+
+
+
+            </div>        
+            <br class="clear"/>
+            <!-- E N D    M A I N   C O N T E N T -->        
+
+            <!-- F O O T E R -->
+            {% page_menu "pages/menus/footer.html" %}
+            {% include "includes/footer_scripts.html" %}
+            <!-- E N D    F O O T E R -->
+        </div>
+    </body>
+</html>
+
